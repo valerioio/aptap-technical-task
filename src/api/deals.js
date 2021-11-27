@@ -1,10 +1,10 @@
-import Axios from "axios";
+const axios = require("axios");
 
 class MockApi {
   axiosInstance;
 
   constructor() {
-    this.axiosInstance = Axios.create({
+    this.axiosInstance = axios.create({
       baseURL: "https://6177b8b59c328300175f5adc.mockapi.io/api/test/deals",
       responseType: "json",
       headers: {
