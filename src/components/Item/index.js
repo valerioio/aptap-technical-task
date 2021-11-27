@@ -3,6 +3,7 @@ import TableCell from "@mui/material/TableCell";
 import Rating from "@mui/material/Rating";
 import styles from "./Item.module.css";
 import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
 
 const StyledRating = styled(Rating)({
   "& .MuiRating-iconFilled": {
@@ -63,7 +64,13 @@ function Item({
         <p>Contract</p>
       </TableCell>
       <TableCell align="center">
-        <button>Add to compare</button>
+        <Button
+          style={{ border: "2px solid" }}
+          className={styles.button}
+          variant="outlined"
+        >
+          Add to Compare
+        </Button>
       </TableCell>
     </TableRow>
   );
