@@ -1,10 +1,17 @@
-import ItemDetails from "../ItemDetails";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
+import Rating from "@mui/material/Rating";
+import styles from "./Item.module.css";
+import { styled } from "@mui/material/styles";
+
+const StyledRating = styled(Rating)({
+  "& .MuiRating-iconFilled": {
+    color: "#006CBE",
+  },
+});
 
 function Item({
   deal: {
-    deal_id,
     provider_logo_image_url,
     provider_name,
     deal_name,
@@ -18,36 +25,44 @@ function Item({
 }) {
   return (
     <TableRow
-      key={deal_id}
       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+      className={styles.row}
     >
-      <TableCell align="right">
-        <img src={provider_logo_image_url} alt={provider_name} />
-      </TableCell>
-      <TableCell align="right">
+      <TableCell component="th" scope="row" className={styles.rowHead}>
+        <img
+          src={provider_logo_image_url}
+          alt={provider_name}
+          className={styles.logo}
+        />
         <div>
           <h4>{provider_name}</h4>
           <p>{deal_name}</p>
-          <div>{provider_rating}</div>
+          <StyledRating
+            name="read-only"
+            value={provider_rating * 5}
+            readOnly
+            precision={0.5}
+            size="small"
+          />
         </div>
       </TableCell>
-      <TableCell align="right">
-        <h4>£{monthly_price}</h4>
+      <TableCell align="center" className={styles.price}>
+        <h4>£{monthly_price.toFixed(2)}</h4>
         <p>Monthly cost</p>
       </TableCell>
-      <TableCell align="right">
-        <ItemDetails
-          data={`${internet_speed} Mbps`}
-          description={broadband_type}
-        />
+      <TableCell align="center">
+        <h4>{internet_speed} Mbps</h4>
+        <p>{broadband_type}</p>
       </TableCell>
-      <TableCell align="right">
-        <ItemDetails data={`£${set_up_cost}`} description="Setup Costs" />
+      <TableCell align="center">
+        <h4>£{set_up_cost}</h4>
+        <p>Setup Costs</p>
       </TableCell>
-      <TableCell align="right">
-        <ItemDetails data={contract_info} description="Contract" />
+      <TableCell align="center">
+        <h4>{contract_info}</h4>
+        <p>Contract</p>
       </TableCell>
-      <TableCell align="right">
+      <TableCell align="center">
         <button>Add to compare</button>
       </TableCell>
     </TableRow>

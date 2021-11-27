@@ -1,0 +1,23 @@
+.rowHead {
+  font-size: 1.1rem !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.row > * {
+  line-height: 1px !important;
+}
+
+.logo {
+  height: 4rem !important;
+  margin: 0 1rem !important;
+}
+
+.price {
+  font-size: 1.1rem !important;
+  color: #006cbe !important;
+}
+
+p {
+  font-size: small !important;
+}
