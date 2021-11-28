@@ -1,7 +1,7 @@
-import styles from "./Comparison.module.css";
+import styles from "./DealToCompare.module.css";
 import Button from "@mui/material/Button";
 
-export default function Comparison({
+export default function DealToCompare({
   name,
   description,
   logo,
@@ -9,7 +9,7 @@ export default function Comparison({
   removeDeal,
 }) {
   return (
-    <div className={styles.comparison}>
+    <div className={styles.box}>
       <img className={styles.logo} src={logo} alt={name} />
       <div className={styles.deal}>
         <h6>{name}</h6>

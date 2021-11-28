@@ -1,15 +1,20 @@
 import styles from "./BottomDrawer.module.css";
-import Comparison from "../Comparison";
+import DealToCompare from "../DealToCompare";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import { MAX_COMPARISONS } from "../../App";
 
-export default function BottomDrawer({ comparisons, deals, removeDeal, openPopup }) {
-  function renderComparison(dealId) {
+export default function BottomDrawer({
+  comparisons,
+  deals,
+  removeDeal,
+  openPopup,
+}) {
+  function renderDeal(dealId) {
     const deal = deals.find(({ deal_id }) => dealId === deal_id);
     return (
-      <Comparison
+      <DealToCompare
         key={dealId}
         name={deal.provider_name}
         description={deal.deal_name}
@@ -26,13 +31,13 @@ export default function BottomDrawer({ comparisons, deals, removeDeal, openPopup
       anchor="bottom"
       open={comparisons.length > 0}
     >
-      <Box
-        className={styles.comparisons}
-        sx={{ width: "auto" }}
-        role="presentation"
-      >
-        {comparisons.map((dealId) => renderComparison(dealId))}
-        <Button className={styles.button} onClick={openPopup} variant="contained">
+      <Box className={styles.deals} sx={{ width: "auto" }} role="presentation">
+        {comparisons.map((dealId) => renderDeal(dealId))}
+        <Button
+          className={styles.button}
+          onClick={openPopup}
+          variant="contained"
+        >
           Compare deals ({comparisons.length} of {MAX_COMPARISONS})
         </Button>
       </Box>

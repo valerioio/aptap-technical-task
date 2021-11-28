@@ -9,10 +9,12 @@ function PopupList({ onClose, open, dealDetails }) {
   console.log(dealDetails);
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Compare</DialogTitle>
-      <Button onClick={onClose} variant="text">
-        ×
-      </Button>
+      <DialogTitle>
+        Compare
+        <Button onClick={onClose} variant="text">
+          ×
+        </Button>
+      </DialogTitle>
       <Divider />
       <p>qwertyuiop</p>
       <p>asdfghjkl</p>
