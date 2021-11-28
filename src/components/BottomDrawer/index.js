@@ -5,7 +5,7 @@ import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import { MAX_COMPARISONS } from "../../App";
 
-export default function BottomDrawer({ comparisons, deals, removeDeal }) {
+export default function BottomDrawer({ comparisons, deals, removeDeal, openPopup }) {
   function renderComparison(dealId) {
     const deal = deals.find(({ deal_id }) => dealId === deal_id);
     return (
@@ -32,7 +32,7 @@ export default function BottomDrawer({ comparisons, deals, removeDeal }) {
         role="presentation"
       >
         {comparisons.map((dealId) => renderComparison(dealId))}
-        <Button className={styles.button} variant="contained">
+        <Button className={styles.button} onClick={openPopup} variant="contained">
           Compare deals ({comparisons.length} of {MAX_COMPARISONS})
         </Button>
       </Box>

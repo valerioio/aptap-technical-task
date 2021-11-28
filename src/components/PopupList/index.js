@@ -1,13 +1,29 @@
-import DealDetails from "../DealDetails";
+// import DealDetails from "../DealDetails";
+import PropTypes from "prop-types";
+import Button from "@mui/material/Button";
+import DialogTitle from "@mui/material/DialogTitle";
+import Dialog from "@mui/material/Dialog";
+import Divider from "@mui/material/Divider";
 
-export default function PopupList({ dealDetailss }) {
+function PopupList({ onClose, open, dealDetails }) {
+  console.log(dealDetails);
   return (
-    <>
-      <h3>Compare</h3>
-      <button>X</button>
-      {dealDetailss.map((details) => (
-        <DealDetails props={details} />
-      ))}
-    </>
+    <Dialog open={open} onClose={onClose}>
+      <DialogTitle>Compare</DialogTitle>
+      <Button onClick={onClose} variant="text">
+        ×
+      </Button>
+      <Divider />
+      <p>qwertyuiop</p>
+      <p>asdfghjkl</p>
+      <p>zxcvbnm</p>
+    </Dialog>
   );
 }
+
+PopupList.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+};
+
+export default PopupList;

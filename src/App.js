@@ -1,18 +1,20 @@
-import { dealsApi } from "./api/deals";
-import Item from "./components/Item";
 import { useEffect, useState } from "react";
+import { dealsApi } from "./api/deals";
+import styles from "./App.module.css";
+import BottomDrawer from "./components/BottomDrawer";
+import PopupList from "./components/PopupList";
+import Item from "./components/Item";
 import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import styles from "./App.module.css";
-import BottomDrawer from "./components/BottomDrawer";
 
 export const MAX_COMPARISONS = 3;
 
 export default function App() {
   const [deals, setDeals] = useState([]);
   const [comparisons, setComparisons] = useState([]);
+  const [popup, setPopup] = useState(false);
 
   function removeComparison(dealId) {
     setComparisons(comparisons.filter((id) => dealId !== id));
@@ -54,6 +56,12 @@ export default function App() {
         deals={deals}
         comparisons={comparisons}
         removeDeal={removeComparison}
+        openPopup={() => setPopup(true)}
+      />
+      <PopupList
+        open={popup}
+        onClose={() => setPopup(false)}
+        dealDetails={deals}
       />
     </>
   );
