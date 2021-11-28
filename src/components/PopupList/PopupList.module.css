@@ -13,7 +13,7 @@
   font-size: x-large !important;
 }
 
-.tableBody * {
+.tableRow > * {
   padding: 0.5rem !important;
 }
 

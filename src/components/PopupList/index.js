@@ -1,11 +1,12 @@
 import { DETAILS_ORDER, DETAILS_NAMES } from "../../tools/constants";
 import ColumnHead from "../ColumnHead";
+import styles from "./PopupList.module.css";
+import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
 import Divider from "@mui/material/Divider";
-import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
@@ -13,7 +14,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import styles from "./PopupList.module.css";
+import Stars from "../Stars";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -91,8 +92,11 @@ function PopupList({ onClose, open, deals, comparisons, removeDeal }) {
           </TableHead>
           <TableBody className={styles.tableBody}>
             {DETAILS_ORDER.map((rowName) => (
-              <StyledTableRow key={rowName}>
-                <StyledTableCell component="th" scope="row">
+              <StyledTableRow className={styles.tableRow} key={rowName}>
+                <StyledTableCell
+                  component="th"
+                  scope="row"
+                >
                   {rowName}
                 </StyledTableCell>
                 {dealsToCompare.map((deal) => (
@@ -101,7 +105,11 @@ function PopupList({ onClose, open, deals, comparisons, removeDeal }) {
                     component="th"
                     scope="row"
                   >
-                    {deal[DETAILS_NAMES[rowName]]}
+                    {rowName !== "Rating" ? (
+                      deal[DETAILS_NAMES[rowName]]
+                    ) : (
+                      <Stars rating={deal[DETAILS_NAMES[rowName]]} />
+                    )}
                   </StyledTableCell>
                 ))}
               </StyledTableRow>

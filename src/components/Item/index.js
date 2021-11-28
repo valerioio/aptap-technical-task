@@ -1,16 +1,9 @@
 import clsx from "clsx";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
-import Rating from "@mui/material/Rating";
 import styles from "./Item.module.css";
-import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
-
-const StyledRating = styled(Rating)({
-  "& .MuiRating-iconFilled": {
-    color: "#006CBE",
-  },
-});
+import Stars from "../Stars";
 
 export default function Item({
   deal: {
@@ -43,13 +36,7 @@ export default function Item({
         <div>
           <h4>{provider_name}</h4>
           <p>{deal_name}</p>
-          <StyledRating
-            name="read-only"
-            value={provider_rating * 5}
-            readOnly
-            precision={0.5}
-            size="small"
-          />
+          <Stars rating={provider_rating} />
         </div>
       </TableCell>
       <TableCell align="center" className={styles.price}>
