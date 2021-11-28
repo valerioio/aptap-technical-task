@@ -46,6 +46,7 @@ export default function App() {
                 deal={deal}
                 selected={comparisons.includes(deal.deal_id)}
                 toggleDeal={toggleComparison}
+                comparisonLimit={comparisons.length === MAX_COMPARISONS}
               />
             ))}
           </TableBody>

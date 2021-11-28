@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import Rating from "@mui/material/Rating";
@@ -26,6 +27,7 @@ export default function Item({
   },
   selected,
   toggleDeal,
+  comparisonLimit,
 }) {
   return (
     <TableRow
@@ -68,8 +70,10 @@ export default function Item({
       </TableCell>
       <TableCell align="center">
         <Button
-          style={{ border: "2px solid" }}
-          className={styles.button}
+          className={clsx({
+            [styles.button]: true,
+            [styles.comparisonLimit]: comparisonLimit && !selected,
+          })}
           variant="outlined"
           onClick={() => {
             toggleDeal(deal_id, selected);

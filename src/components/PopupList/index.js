@@ -96,7 +96,11 @@ function PopupList({ onClose, open, deals, comparisons, removeDeal }) {
                   {rowName}
                 </StyledTableCell>
                 {dealsToCompare.map((deal) => (
-                  <StyledTableCell component="th" scope="row">
+                  <StyledTableCell
+                    key={deal.deal_id}
+                    component="th"
+                    scope="row"
+                  >
                     {deal[DETAILS_NAMES[rowName]]}
                   </StyledTableCell>
                 ))}
