@@ -61,7 +61,8 @@ export default function App() {
       <PopupList
         open={popup}
         onClose={() => setPopup(false)}
-        dealDetails={deals}
+        deals={deals}
+        comparisons={comparisons}
       />
     </>
   );
