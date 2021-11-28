@@ -1,4 +1,4 @@
-function DealInfo({ logo, name, description, infos }) {
+export default function DealDetails({ logo, name, description, infos }) {
   return (
     <>
       <button>Remove</button>
@@ -16,5 +16,3 @@ function DealInfo({ logo, name, description, infos }) {
     </>
   );
 }
-
-export default DealInfo;

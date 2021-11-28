@@ -1,15 +1,13 @@
-import DealInfo from "../DealInfo";
+import DealDetails from "../DealDetails";
 
-function PopupList({ dealInfos }) {
+export default function PopupList({ dealDetailss }) {
   return (
     <>
       <h3>Compare</h3>
       <button>X</button>
-      {dealInfos.map((info) => (
-        <DealInfo props={info} />
+      {dealDetailss.map((details) => (
+        <DealDetails props={details} />
       ))}
     </>
   );
 }
-
-export default PopupList;

@@ -8,8 +8,8 @@ import TableBody from "@mui/material/TableBody";
 import styles from "./App.module.css";
 import BottomDrawer from "./components/BottomDrawer";
 
-function App() {
-  const [items, setItems] = useState([]);
+export default function App() {
+  const [deals, setDeals] = useState([]);
   const [comparisons, setComparisons] = useState([]);
 
   function removeComparison(dealId) {
@@ -21,16 +21,15 @@ function App() {
   }
 
   function toggleComparison(dealId, selected) {
+    console.log(selected);
     if (selected) removeComparison(dealId);
     else addComparison(dealId);
   }
 
   useEffect(() => {
-    async function fetchData() {
-      const deals = await dealsApi.getDeals();
-      setItems(deals);
-    }
-    fetchData();
+    (async () => {
+      setDeals(await dealsApi.getDeals());
+    })();
   }, []);
 
   return (
@@ -38,15 +37,22 @@ function App() {
       <TableContainer component={Paper} className={styles.table}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableBody>
-            {items.map((item) => (
-              <Item key={item.deal_id} deal={item} toggleDeal={toggleComparison} />
+            {deals.map((deal) => (
+              <Item
+                key={deal.deal_id}
+                deal={deal}
+                selected={comparisons.includes(deal.deal_id)}
+                toggleDeal={toggleComparison}
+              />
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <BottomDrawer deals={comparisons} removeDeal={removeComparison} />
+      <BottomDrawer
+        deals={deals}
+        comparisons={comparisons}
+        removeDeal={removeComparison}
+      />
     </>
   );
 }
-
-export default App;
