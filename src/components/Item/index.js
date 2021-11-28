@@ -1,3 +1,4 @@
+import { useState } from "react";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import Rating from "@mui/material/Rating";
@@ -22,8 +23,11 @@ function Item({
     broadband_type,
     set_up_cost,
     contract_info,
+    deal_id,
   },
+  toggleDeal,
 }) {
+  const [selected, setSelected] = useState(false);
   return (
     <TableRow
       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -68,8 +72,12 @@ function Item({
           style={{ border: "2px solid" }}
           className={styles.button}
           variant="outlined"
+          onClick={() => {
+            toggleDeal(deal_id, selected);
+            setSelected(!selected);
+          }}
         >
-          Add to Compare
+          {selected ? "Remove" : "Add to Compare"}
         </Button>
       </TableCell>
     </TableRow>
