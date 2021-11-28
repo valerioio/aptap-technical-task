@@ -8,6 +8,10 @@
   line-height: 1px !important;
 }
 
+.row p {
+  font-size: small !important;
+}
+
 .logo {
   height: 4rem !important;
   margin: 0 1rem !important;
@@ -16,10 +20,6 @@
 .price {
   font-size: 1.1rem !important;
   color: #006cbe !important;
-}
-
-p {
-  font-size: small !important;
 }
 
 .button {

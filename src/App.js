@@ -8,6 +8,8 @@ import TableBody from "@mui/material/TableBody";
 import styles from "./App.module.css";
 import BottomDrawer from "./components/BottomDrawer";
 
+export const MAX_COMPARISONS = 3;
+
 export default function App() {
   const [deals, setDeals] = useState([]);
   const [comparisons, setComparisons] = useState([]);
@@ -17,11 +19,11 @@ export default function App() {
   }
 
   function addComparison(dealId) {
-    setComparisons([...comparisons, dealId]);
+    if (comparisons.length < MAX_COMPARISONS)
+      setComparisons([...comparisons, dealId]);
   }
 
   function toggleComparison(dealId, selected) {
-    console.log(selected);
     if (selected) removeComparison(dealId);
     else addComparison(dealId);
   }

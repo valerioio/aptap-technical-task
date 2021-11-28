@@ -1,0 +1,11 @@
+.comparisons {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.button {
+  text-transform: none !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 4px rgb(0, 0, 0, 0.25) !important;
+  margin: 2rem 0.5rem !important;
+}

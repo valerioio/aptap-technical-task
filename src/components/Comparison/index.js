@@ -1,3 +1,6 @@
+import styles from "./Comparison.module.css";
+import Button from "@mui/material/Button";
+
 export default function Comparison({
   name,
   description,
@@ -6,11 +9,19 @@ export default function Comparison({
   removeDeal,
 }) {
   return (
-    <>
-      <img src={logo} alt={name} height="4rem" />
-      <h6>{name}</h6>
-      <p>{description}</p>
-      <button onClick={() => removeDeal(deal_id)}>X</button>
-    </>
+    <div className={styles.comparison}>
+      <img className={styles.logo} src={logo} alt={name} />
+      <div className={styles.deal}>
+        <h6>{name}</h6>
+        <p>{description}</p>
+      </div>
+      <Button
+        className={styles.deleteButton}
+        onClick={() => removeDeal(deal_id)}
+        variant="text"
+      >
+        ×
+      </Button>
+    </div>
   );
 }
