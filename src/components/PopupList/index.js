@@ -1,3 +1,4 @@
+import ColumnHead from "../ColumnHead";
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -11,6 +12,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import styles from "./PopupList.module.css";
 
 const detailsOrder = [
   "Rating",
@@ -19,7 +21,7 @@ const detailsOrder = [
   "Speed",
   "Broadband Type",
   "Set Up Cost",
-  "One Off Cost",
+  // "One Off Cost",
   "Term End",
   "Data Limits",
 ];
@@ -30,15 +32,15 @@ const detailsNames = {
   Speed: "internet_speed",
   "Broadband Type": "broadband_type",
   "Set Up Cost": "set_up_cost",
-  "One Off Cost": "0",
+  // "One Off Cost": "one_off_cost",
   "Term End": "contract_info",
   "Data Limits": "data_limits",
 };
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    backgroundColor: theme.palette.common.white,
+    color: theme.palette.common.black,
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -49,7 +51,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
   },
-  // hide last border
   "&:last-child td, &:last-child th": {
     border: 0,
   },
@@ -61,9 +62,9 @@ function PopupList({ onClose, open, deals, comparisons }) {
   );
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>
+      <DialogTitle className={styles.tableTitle}>
         Compare
-        <Button onClick={onClose} variant="text">
+        <Button className={styles.closeButton} onClick={onClose} variant="text">
           ×
         </Button>
       </DialogTitle>
@@ -74,9 +75,22 @@ function PopupList({ onClose, open, deals, comparisons }) {
           <TableHead>
             <TableRow>
               <StyledTableCell></StyledTableCell>
-              {dealsToCompare.map(({ deal_id, provider_name }) => (
-                <StyledTableCell key={deal_id}>{provider_name}</StyledTableCell>
-              ))}
+              {dealsToCompare.map(
+                ({
+                  deal_id,
+                  provider_name,
+                  deal_name,
+                  provider_logo_image_url,
+                }) => (
+                  <StyledTableCell key={deal_id}>
+                    <ColumnHead
+                      provider={provider_name}
+                      deal={deal_name}
+                      logo={provider_logo_image_url}
+                    />
+                  </StyledTableCell>
+                )
+              )}
             </TableRow>
           </TableHead>
           <TableBody>

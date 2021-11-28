@@ -16,7 +16,7 @@ export default function DealToCompare({
         <p>{description}</p>
       </div>
       <Button
-        className={styles.deleteButton}
+        className={styles.closeButton}
         onClick={() => removeDeal(deal_id)}
         variant="text"
       >

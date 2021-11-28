@@ -29,12 +29,12 @@
   font-size: small !important;
 }
 
-.deleteButton {
+.closeButton {
   border-radius: 50% !important;
   font-size: 1.75rem !important;
   color: rgb(0, 0, 0, 0.5) !important;
 }
 
-.deleteButton:hover {
+.closeButton:hover {
   background-color: white !important;
 }
