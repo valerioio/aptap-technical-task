@@ -83,6 +83,9 @@ function PopupList({ onClose, open, deals, comparisons }) {
                   provider_logo_image_url,
                 }) => (
                   <StyledTableCell key={deal_id}>
+                    <Button className={styles.removeButton} variant="text">
+                      Remove
+                    </Button>
                     <ColumnHead
                       provider={provider_name}
                       deal={deal_name}

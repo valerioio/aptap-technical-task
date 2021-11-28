@@ -1,0 +1,19 @@
+.columnDetails {
+  display: flex;
+}
+
+.provider {
+  font-size: x-large !important;
+  margin: 0 !important;
+}
+
+.deal {
+  font-size: small !important;
+  color: rgb(0, 0, 0, 0.5) !important;
+  margin: 0 !important;
+}
+
+.logo {
+  height: 3.5rem !important;
+  margin: 0.5rem !important;
+}

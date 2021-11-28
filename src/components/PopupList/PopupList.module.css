@@ -1,7 +1,7 @@
 .tableTitle {
   display: flex !important;
   justify-content: space-between !important;
-  align-items: center;
+  align-items: center !important;
   font-size: x-large !important;
 }
 
@@ -12,5 +12,15 @@
 }
 
 .closeButton:hover {
+  background-color: white !important;
+}
+
+.removeButton {
+  color: rgb(0, 0, 0, 0.5) !important;
+  text-decoration: underline !important;
+  text-transform: none !important;
+}
+
+.removeButton:hover {
   background-color: white !important;
 }
