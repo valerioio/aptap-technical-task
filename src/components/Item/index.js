@@ -57,6 +57,7 @@ export default function Item({
       </TableCell>
       <TableCell align="center">
         <Button
+        // change the background color to red when other deals cannot be selected
           className={clsx({
             [styles.button]: true,
             [styles.comparisonLimit]: comparisonLimit && !selected,

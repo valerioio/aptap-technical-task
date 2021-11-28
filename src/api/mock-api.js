@@ -1,5 +1,6 @@
 const axios = require("axios");
 
+// helper networking class to obtain mock data
 export default class MockApi {
   axiosInstance;
 

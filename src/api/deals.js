@@ -1,5 +1,6 @@
 import MockApi from "./mock-api";
 
+// helper class to restructure data fetched with the MockApi class
 class DealsApi {
   axiosInstance;
 

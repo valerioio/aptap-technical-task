@@ -39,6 +39,7 @@ function PopupList({ onClose, open, deals, comparisons, removeDeal }) {
   const dealsToCompare = comparisons.map((dealId) =>
     deals.find(({ deal_id }) => dealId === deal_id)
   );
+
   function handleClickRemove(deal_id) {
     if (comparisons.length === 1) onClose();
     removeDeal(deal_id);
@@ -90,15 +91,14 @@ function PopupList({ onClose, open, deals, comparisons, removeDeal }) {
               )}
             </TableRow>
           </TableHead>
+
           <TableBody className={styles.tableBody}>
             {DETAILS_ORDER.map((rowName) => (
               <StyledTableRow className={styles.tableRow} key={rowName}>
-                <StyledTableCell
-                  component="th"
-                  scope="row"
-                >
+                <StyledTableCell component="th" scope="row">
                   {rowName}
                 </StyledTableCell>
+
                 {dealsToCompare.map((deal) => (
                   <StyledTableCell
                     key={deal.deal_id}
