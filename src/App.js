@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { MAX_COMPARISONS } from "./tools/constants";
 import { dealsApi } from "./api/deals";
 import styles from "./App.module.css";
 import BottomDrawer from "./components/BottomDrawer";
@@ -8,8 +9,6 @@ import TableContainer from "@mui/material/TableContainer";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-
-export const MAX_COMPARISONS = 3;
 
 export default function App() {
   const [deals, setDeals] = useState([]);

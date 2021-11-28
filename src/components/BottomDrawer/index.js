@@ -1,9 +1,9 @@
+import { MAX_COMPARISONS } from "../../tools/constants";
 import styles from "./BottomDrawer.module.css";
 import DealToCompare from "../DealToCompare";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
-import { MAX_COMPARISONS } from "../../App";
 
 export default function BottomDrawer({
   comparisons,

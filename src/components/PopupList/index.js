@@ -1,3 +1,4 @@
+import { DETAILS_ORDER, DETAILS_NAMES } from "../../tools/constants";
 import ColumnHead from "../ColumnHead";
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
@@ -13,29 +14,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import styles from "./PopupList.module.css";
-
-const detailsOrder = [
-  "Rating",
-  "Monthly Cost",
-  "Tariff Type",
-  "Speed",
-  "Broadband Type",
-  "Set Up Cost",
-  "One Off Cost",
-  "Term End",
-  "Data Limits",
-];
-const detailsNames = {
-  Rating: "provider_rating",
-  "Monthly Cost": "monthly_price",
-  "Tariff Type": "deal_type",
-  Speed: "internet_speed",
-  "Broadband Type": "broadband_type",
-  "Set Up Cost": "set_up_cost",
-  "One Off Cost": "one_off_cost",
-  "Term End": "contract_info",
-  "Data Limits": "data_limits",
-};
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -112,14 +90,14 @@ function PopupList({ onClose, open, deals, comparisons, removeDeal }) {
             </TableRow>
           </TableHead>
           <TableBody className={styles.tableBody}>
-            {detailsOrder.map((rowName) => (
+            {DETAILS_ORDER.map((rowName) => (
               <StyledTableRow key={rowName}>
                 <StyledTableCell component="th" scope="row">
                   {rowName}
                 </StyledTableCell>
                 {dealsToCompare.map((deal) => (
                   <StyledTableCell component="th" scope="row">
-                    {deal[detailsNames[rowName]]}
+                    {deal[DETAILS_NAMES[rowName]]}
                   </StyledTableCell>
                 ))}
               </StyledTableRow>
