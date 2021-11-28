@@ -32,7 +32,7 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-      setDeals(await dealsApi.getDeals());
+      setDeals(await dealsApi.get());
     })();
   }, []);
 

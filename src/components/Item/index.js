@@ -51,15 +51,15 @@ export default function Item({
         </div>
       </TableCell>
       <TableCell align="center" className={styles.price}>
-        <h4>£{monthly_price.toFixed(2)}</h4>
+        <h4>{monthly_price}</h4>
         <p>Monthly cost</p>
       </TableCell>
       <TableCell align="center">
-        <h4>{internet_speed} Mbps</h4>
+        <h4>{internet_speed}</h4>
         <p>{broadband_type}</p>
       </TableCell>
       <TableCell align="center">
-        <h4>£{set_up_cost}</h4>
+        <h4>{set_up_cost}</h4>
         <p>Setup Costs</p>
       </TableCell>
       <TableCell align="center">

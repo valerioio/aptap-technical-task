@@ -21,7 +21,7 @@ const detailsOrder = [
   "Speed",
   "Broadband Type",
   "Set Up Cost",
-  // "One Off Cost",
+  "One Off Cost",
   "Term End",
   "Data Limits",
 ];
@@ -32,7 +32,7 @@ const detailsNames = {
   Speed: "internet_speed",
   "Broadband Type": "broadband_type",
   "Set Up Cost": "set_up_cost",
-  // "One Off Cost": "one_off_cost",
+  "One Off Cost": "one_off_cost",
   "Term End": "contract_info",
   "Data Limits": "data_limits",
 };

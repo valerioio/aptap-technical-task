@@ -1,49 +1,26 @@
-const axios = require("axios");
+import MockApi from "./mock-api";
 
-class MockApi {
+class DealsApi {
   axiosInstance;
 
   constructor() {
-    this.axiosInstance = axios.create({
-      baseURL: "https://6177b8b59c328300175f5adc.mockapi.io/api/test/deals",
-      responseType: "json",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    this.axiosInstance = new MockApi();
   }
 
-  async getDeals() {
+  async get() {
     try {
-      const response = await this.axiosInstance.get("");
-      const { deals } = response.data;
+      const deals = await this.axiosInstance.get();
+      for (const deal of deals) {
+        deal.monthly_price = "£" + deal.monthly_price.toFixed(2);
+        deal.internet_speed += " Mbps";
+        deal.set_up_cost = "£" + deal.set_up_cost;
+        deal.one_off_cost = "£0";
+      }
       return deals;
     } catch (error) {
       console.error(error);
     }
   }
-
-  async getDealById(id) {
-    try {
-      const deals = await this.getDeals();
-      const deal = deals.find(({ deal_id }) => deal_id === id);
-      return deal;
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  // async getDealListByIds(ids) {
-  //   try {
-  //     const deals = await this.getDeals();
-  //     const filteredDeals = ids.map((id) =>
-  //       deals.find(({ deal_id }) => deal_id === id)
-  //     );
-  //     return filteredDeals;
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
 }
 
-export const dealsApi = new MockApi();
+export const dealsApi = new DealsApi();
