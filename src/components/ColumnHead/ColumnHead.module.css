@@ -1,5 +1,12 @@
+.columnHead {
+  display: flex !important;
+  align-items: center !important;
+  margin: 1rem 0 !important;
+}
+
 .columnDetails {
-  display: flex;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .provider {
@@ -15,5 +22,5 @@
 
 .logo {
   height: 3.5rem !important;
-  margin: 0.5rem !important;
+  margin-right: 0.5rem !important;
 }

@@ -61,7 +61,13 @@ function PopupList({ onClose, open, deals, comparisons }) {
     deals.find(({ deal_id }) => dealId === deal_id)
   );
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog
+      className={styles.popupWindow}
+      open={open}
+      onClose={onClose}
+      maxWidth="xl"
+      fullWidth={true}
+    >
       <DialogTitle className={styles.tableTitle}>
         Compare
         <Button className={styles.closeButton} onClick={onClose} variant="text">
@@ -73,7 +79,7 @@ function PopupList({ onClose, open, deals, comparisons }) {
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
-            <TableRow>
+            <TableRow className={styles.tableHeadRow}>
               <StyledTableCell></StyledTableCell>
               {dealsToCompare.map(
                 ({
@@ -96,7 +102,7 @@ function PopupList({ onClose, open, deals, comparisons }) {
               )}
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody className={styles.tableBody}>
             {detailsOrder.map((rowName) => (
               <StyledTableRow key={rowName}>
                 <StyledTableCell component="th" scope="row">

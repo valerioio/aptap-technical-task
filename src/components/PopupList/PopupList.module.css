@@ -1,3 +1,11 @@
+.popupWindow > * > * {
+  padding: 0 1rem 5rem 1rem !important;
+}
+
+.tableHeadRow > * {
+  padding: 1rem 0 !important;
+}
+
 .tableTitle {
   display: flex !important;
   justify-content: space-between !important;
@@ -5,9 +13,13 @@
   font-size: x-large !important;
 }
 
+.tableBody * {
+  padding: 0.5rem !important;
+}
+
 .closeButton {
   border-radius: 50% !important;
-  font-size: 1.75rem !important;
+  font-size: 2rem !important;
   color: rgb(0, 0, 0, 0.5) !important;
 }
 
@@ -19,6 +31,7 @@
   color: rgb(0, 0, 0, 0.5) !important;
   text-decoration: underline !important;
   text-transform: none !important;
+  padding: 0 !important;
 }
 
 .removeButton:hover {
