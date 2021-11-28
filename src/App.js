@@ -63,6 +63,7 @@ export default function App() {
         onClose={() => setPopup(false)}
         deals={deals}
         comparisons={comparisons}
+        removeDeal={removeComparison}
       />
     </>
   );

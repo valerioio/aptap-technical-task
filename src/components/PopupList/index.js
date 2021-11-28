@@ -56,10 +56,15 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function PopupList({ onClose, open, deals, comparisons }) {
+function PopupList({ onClose, open, deals, comparisons, removeDeal }) {
   const dealsToCompare = comparisons.map((dealId) =>
     deals.find(({ deal_id }) => dealId === deal_id)
   );
+  function handleClickRemove(deal_id) {
+    if (comparisons.length === 1) onClose();
+    removeDeal(deal_id);
+  }
+
   return (
     <Dialog
       className={styles.popupWindow}
@@ -89,7 +94,11 @@ function PopupList({ onClose, open, deals, comparisons }) {
                   provider_logo_image_url,
                 }) => (
                   <StyledTableCell key={deal_id}>
-                    <Button className={styles.removeButton} variant="text">
+                    <Button
+                      className={styles.removeButton}
+                      onClick={() => handleClickRemove(deal_id)}
+                      variant="text"
+                    >
                       Remove
                     </Button>
                     <ColumnHead
